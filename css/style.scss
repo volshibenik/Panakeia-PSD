@@ -1,1 +1,201 @@
-font-family: 'Roboto Slab', serif;
+@import "normalize";
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+$orange :  #dd4b2b;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul,li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.btn {
+    border: 2px solid transparent;
+    padding: 15px 50px;
+    border-radius: 60px;
+    background-color: #fff;
+    margin-top: 25px;
+    transition: .3s;
+    cursor: pointer;
+    
+}
+.main-header {
+    background-color: #fff;
+    .main-nav {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        height: 150px;
+    }
+    .logo {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 26px;
+        span {
+            color: $orange;
+            font-weight: normal;
+            font-size: 16px;
+        }
+    }
+    .nav-list {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        width: 65%;
+        justify-content: space-between;
+        li {
+            flex: 1 1 auto;
+            text-align: center;
+            margin: auto;
+            a {
+                display: block;
+                padding: 1rem;
+                color: #9a9da2;
+                border-radius: 60px;
+                &:hover {
+                    background-color: $orange;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+/*Banner*/
+
+.s-banner {
+    background:rgba(150,50,0,.5) url(../img/banner-bg.jpg) center no-repeat;
+    background-size: cover;
+    min-height: 1320px;
+    text-align: center;
+    color: #fff;
+    border-top: 1px solid transparent;
+    .main-title {
+        font-weight: normal;
+        margin-top: 500px;
+        margin-bottom: 10px;
+        font-size: 48px;
+    }
+    .main-subt {
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 12px;
+        
+    }
+    .meal-list {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 80px;
+        li {
+            width: 30%;
+            padding: 0 20px;
+            h3 {
+                font-size: 30px;
+                font-weight: bold;
+            }
+            p {
+                font-weight: 300;
+                line-height: 30px;
+            }
+        }
+    }
+    .banner-btn {
+        color: #612316;
+        font-size: 18px;
+        &:hover {
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+    }
+    }
+}
+
+
+
+
+/*news*/
+.s-news {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #edeff1;
+    .title {
+        font-size: 30px;
+        margin-top: 0;
+    }
+    .news-list {
+        margin-top: 60px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        li {
+            width: 31%;
+            h3 {
+                font-size: 22px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            p {
+                font-weight: 300;
+                line-height: 27px;
+            }
+            .news-btn {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+/*newsletter*/
+.s-newsletter {
+    text-align: center;
+    color: #fff;
+    padding: 60px 0;
+    background:coral  url(../img/newsletter-bg.jpg) center no-repeat;
+    background-size: cover;
+    .mini-container {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .title {
+        font-size: 30px;
+        margin-top: 0;
+    }
+    .newsletter-text {
+        font-size: 15px;
+        font-weight: 300;
+        text-shadow: 1px 3px 3px rgba(0,0,0,.5)
+    }
+    .newsletter-form {
+        .text-input {
+            background-color: rgba(255,255,255,.1);
+            color: #fff;
+        }
+    }
+}
+
+
+
+
+
+
