@@ -4,6 +4,34 @@
     font-family: 'Roboto Slab', serif;
 }
 $orange :  #dd4b2b;
+@mixin placeholder($color, $size, $weight, $style) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: $style;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: $style;
+  }
+  &:-moz-placeholder  {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+
+.cf:after{
+    clear:both;
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -124,7 +152,7 @@ ul,li {
             background-color: transparent;
             border: 2px solid #fff;
             color: #fff;
-    }
+        }
     }
 }
 
@@ -180,21 +208,105 @@ ul,li {
     .title {
         font-size: 30px;
         margin-top: 0;
+        text-shadow: 1px 3px 3px rgba(0,0,0,.5);
     }
     .newsletter-text {
         font-size: 15px;
         font-weight: 300;
-        text-shadow: 1px 3px 3px rgba(0,0,0,.5)
+        text-shadow: 1px 3px 3px rgba(0,0,0,.5);
     }
     .newsletter-form {
-        .text-input {
-            background-color: rgba(255,255,255,.1);
-            color: #fff;
+        padding-left: 10%;
+        padding-right: 10%;
+        input {
+            padding: 15px 30px;
+            border:1px solid #ccc;
         }
+        .text-input {
+            background-color: rgba(100,100,100,.3);
+            color: #fff;
+            border-radius: 100px;
+            padding-right: 80px;
+            float: left;
+            width: 100%;
+            
+            @include placeholder(#ddd, 14px, 100, normal);
+        }
+        .btn-form {
+            float: left;
+            margin-top: 0;
+            margin-left: -200px;
+            width: 200px;
+            color: #612316;
+            border-radius: 60px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
     }
 }
 
-
+.s-products {
+    .product {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        .desc, .view {
+            width: 48%; 
+        }
+        .desc {
+            h3 {
+                font-size: 30px;
+            }
+            .btn-product {
+                background-color: #191b29;
+                color: #fff;
+                padding: 15px 65px;
+                &:hover {
+                    background-color: $orange;
+                }
+            }
+        }
+        .view {
+            img {
+                width: 100%;
+                max-height: 100%;
+            }
+        }
+        &:nth-of-type(2n) {
+            .view {
+                order:-1;
+            }
+        }
+    }
+}
+.main-footer {
+    background-color: $orange;
+    padding: 40px 0;
+    .footer-list {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        li {
+            flex:1 1 30%;
+            text-align: center;
+            a {
+                color: #fff;
+                padding: 5px;
+                display: block;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
 
 
 

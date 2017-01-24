@@ -451,6 +451,15 @@ template {
   font-family: 'Roboto Slab', serif;
 }
 
+.cf:before, .cf:after {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -650,6 +659,7 @@ ul, li {
 .s-newsletter .title {
   font-size: 30px;
   margin-top: 0;
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 .s-newsletter .newsletter-text {
@@ -658,7 +668,118 @@ ul, li {
   text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
+.s-newsletter .newsletter-form {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.s-newsletter .newsletter-form input {
+  padding: 15px 30px;
+  border: 1px solid #ccc;
+}
+
 .s-newsletter .newsletter-form .text-input {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(100, 100, 100, 0.3);
   color: #fff;
+  border-radius: 100px;
+  padding-right: 80px;
+  float: left;
+  width: 100%;
+}
+
+.s-newsletter .newsletter-form .text-input::-webkit-input-placeholder {
+  color: #ddd;
+  font-size: 14px;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.s-newsletter .newsletter-form .text-input:-ms-input-placeholder {
+  color: #ddd;
+  font-size: 14px;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.s-newsletter .newsletter-form .text-input:-moz-placeholder {
+  color: #ddd;
+  font-size: 14px;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.s-newsletter .newsletter-form .btn-form {
+  float: left;
+  margin-top: 0;
+  margin-left: -200px;
+  width: 200px;
+  color: #612316;
+  border-radius: 60px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.s-products .product {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.s-products .product .desc, .s-products .product .view {
+  width: 48%;
+}
+
+.s-products .product .desc h3 {
+  font-size: 30px;
+}
+
+.s-products .product .desc .btn-product {
+  background-color: #191b29;
+  color: #fff;
+  padding: 15px 65px;
+}
+
+.s-products .product .desc .btn-product:hover {
+  background-color: #dd4b2b;
+}
+
+.s-products .product .view img {
+  width: 100%;
+  max-height: 100%;
+}
+
+.s-products .product:nth-of-type(2n) .view {
+  order: -1;
+}
+
+.main-footer {
+  background-color: #dd4b2b;
+  padding: 40px 0;
+}
+
+.main-footer .footer-list {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-footer .footer-list li {
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+.main-footer .footer-list li a {
+  color: #fff;
+  padding: 5px;
+  display: block;
+}
+
+.main-footer .footer-list li a:hover {
+  text-decoration: underline;
 }
