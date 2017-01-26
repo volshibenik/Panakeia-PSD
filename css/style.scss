@@ -1,4 +1,55 @@
 @import "normalize";
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+@mixin for-desktop-down {
+  @media (max-width: 1200px) { @content; }
+}
+@mixin for-tablet-landscape-down {
+  @media (max-width: 900px) { @content; }
+}
+
+
+// usage
+.my-box {
+  padding: 10px;
+  
+  @include for-desktop-up {
+    padding: 20px;
+  }
+}
+.text-shadow {
+    text-shadow: 1px 3px 3px rgba(0,0,0,.5);
+}
+
+
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    
+    @include for-desktop-down {
+        padding: 0 20px;
+    }
+    
+    
+}
+
+
 * {
     box-sizing: border-box;
     font-family: 'Roboto Slab', serif;
@@ -41,10 +92,7 @@ ul,li {
     padding: 0;
     list-style: none;
 }
-.container {
-    max-width: 1170px;
-    margin: 0 auto;
-}
+
 .btn {
     border: 2px solid transparent;
     padding: 15px 50px;
@@ -64,7 +112,12 @@ ul,li {
         display: -o-flex;
         display: flex;
         justify-content: space-between;
-        height: 150px;
+        min-height: 150px;
+        
+        @include for-tablet-landscape-down {
+            flex-direction: column;
+            padding-top: 20px;
+        }
     }
     .logo {
         margin-top: auto;
@@ -72,6 +125,12 @@ ul,li {
         font-weight: bold;
         font-size: 36px;
         line-height: 26px;
+        padding-right: 30px;
+        @include for-tablet-landscape-down {
+            padding-right: 0;
+            text-align: center;
+        }
+        
         span {
             color: $orange;
             font-weight: normal;
@@ -84,12 +143,18 @@ ul,li {
         display: -ms-flex;
         display: -o-flex;
         display: flex;
-        width: 65%;
         justify-content: space-between;
+        align-items: center;
+        
+        @include for-tablet-landscape-down {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
         li {
             flex: 1 1 auto;
             text-align: center;
-            margin: auto;
+            
             a {
                 display: block;
                 padding: 1rem;
@@ -106,22 +171,30 @@ ul,li {
 /*Banner*/
 
 .s-banner {
+    
     background:rgba(150,50,0,.5) url(../img/banner-bg.jpg) center no-repeat;
     background-size: cover;
     min-height: 1320px;
     text-align: center;
     color: #fff;
-    border-top: 1px solid transparent;
     .main-title {
         font-weight: normal;
-        margin-top: 500px;
+        padding-top: 500px;
         margin-bottom: 10px;
         font-size: 48px;
+        margin-top: 0;
+        @extend .text-shadow;
+        
+        @include for-tablet-landscape-down {
+            padding-top: 100px;
+        }
+        
     }
     .main-subt {
         font-weight: bold;
         font-size: 20px;
         margin-top: 12px;
+        @extend .text-shadow;
         
     }
     .meal-list {
@@ -132,22 +205,37 @@ ul,li {
         display: flex;
         justify-content: space-around;
         margin-top: 80px;
+        
+        @include for-tablet-landscape-down {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
         li {
+            
             width: 30%;
             padding: 0 20px;
+            
+            @include for-tablet-landscape-down {
+                width: auto;
+            }    
+            
             h3 {
                 font-size: 30px;
                 font-weight: bold;
+                @extend .text-shadow;
             }
             p {
                 font-weight: 300;
                 line-height: 30px;
+                @extend .text-shadow;
             }
         }
     }
     .banner-btn {
         color: #612316;
         font-size: 18px;
+        margin-bottom: 40px;
         &:hover {
             background-color: transparent;
             border: 2px solid #fff;
@@ -176,8 +264,22 @@ ul,li {
         display: -o-flex;
         display: flex;
         justify-content: space-between;
+        
+        @include for-phone-only {
+            flex-direction: column;
+        }
+        
         li {
             width: 31%;
+            
+            @include for-phone-only {
+                width: auto;
+                margin-bottom: 20px;
+            }
+            
+            .news-meal-img {
+                width: 100%;
+            }
             h3 {
                 font-size: 22px;
                 font-weight: bold;
@@ -202,18 +304,18 @@ ul,li {
     background:coral  url(../img/newsletter-bg.jpg) center no-repeat;
     background-size: cover;
     .mini-container {
-        width: 600px;
+        max-width: 600px;
         margin: 0 auto;
     }
     .title {
         font-size: 30px;
         margin-top: 0;
-        text-shadow: 1px 3px 3px rgba(0,0,0,.5);
+        @extend .text-shadow;
     }
     .newsletter-text {
         font-size: 15px;
         font-weight: 300;
-        text-shadow: 1px 3px 3px rgba(0,0,0,.5);
+        @extend .text-shadow;
     }
     .newsletter-form {
         padding-left: 10%;
@@ -226,9 +328,10 @@ ul,li {
             background-color: rgba(100,100,100,.3);
             color: #fff;
             border-radius: 100px;
-            padding-right: 80px;
+            padding-right: 200px;
             float: left;
             width: 100%;
+            outline: none;
             
             @include placeholder(#ddd, 14px, 100, normal);
         }
@@ -246,16 +349,39 @@ ul,li {
     }
 }
 
+/*products*/
+
 .s-products {
+    padding: 50px 0;
+    .title {
+        font-size: 30px;
+        margin-top: 0;
+        text-align: center;
+    }
     .product {
+        margin-bottom: 30px;
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
         display: -o-flex;
         display: flex;
         justify-content: space-between;
+        
+        @include for-tablet-landscape-down {
+            flex-direction: column;
+            align-items: stretch;
+            .view {
+                order: -1;
+            }
+        }
         .desc, .view {
             width: 48%; 
+            
+            @include for-tablet-landscape-down {
+                width: auto;
+                text-align: center;
+                margin-bottom: 20px;
+            }
         }
         .desc {
             h3 {
@@ -283,6 +409,9 @@ ul,li {
         }
     }
 }
+
+/*footer*/
+
 .main-footer {
     background-color: $orange;
     padding: 40px 0;
@@ -298,10 +427,12 @@ ul,li {
             text-align: center;
             a {
                 color: #fff;
-                padding: 5px;
-                display: block;
+                padding: 5px 0;
+                display: inline-block;
+                border-bottom: 1px solid transparent;
+                transition: .4s;
                 &:hover {
-                    text-decoration: underline;
+                    border-bottom: 1px solid #fff;
                 }
             }
         }
