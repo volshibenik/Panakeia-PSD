@@ -291,8 +291,24 @@ ul,li {
             }
             .news-btn {
                 font-size: 15px;
+                box-shadow:0 3px 20px rgba(0,0,0,.2), inset 0 2px 0 rgba(255,255,255,.6), 0 2px 0 rgba(0,0,0,.1);
+                text-shadow: 0px 1px rgba(100,100,100,.2);
+                span {
+    
+                }
+                &:hover {
+                    transform: translate(0,2px);
+                    box-shadow:inset 0 3px 20px rgba(0,0,0,.2), 0 2px 0 rgba(255,255,255,.4),inset 0 2px 0 rgba(0,0,0,.1);
+                    text-shadow: 0px -1px rgba(100,100,100,.2);
+                }
             }
         }
+    }
+    /*letters animation js*/
+    .span-letter.active {
+        color: #bbb;
+        transform: rotate(100deg);
+        
     }
 }
 
